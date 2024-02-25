@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Location Tracker</title>
+
+    <!-- Mapbox CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            overflow: auto;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 3px;
+            text-align: center;
+            font-size: 0.8em;
+            border-radius: 20px;
+        }
+
+        #container {
+            display: flex;
+            height: calc(100vh - 10px);
+            margin: 5px;
+            border: 2px solid #ccc;
+            overflow: hidden;
+            border-radius: 50px;
+        }
+
+        #left-container {
+            flex: 1;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            border-radius: 50px;
+            border-right: 2px solid #ccc;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #left-container h2 {
+            background-color: #333; /* Background color for the left part header */
+            color: #fff;
+            padding: 15px; /* Increased padding */
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8em; /* Increased font size */
+        }
+
+        .message-container {
+            margin-bottom: 15px;
+            width: 100%; /* Full width for messages */
+        }
+
+        .message {
+            padding: 10px;
+            border-radius: 15px;
+            word-wrap: break-word;
+        }
+
+        .warning-message {
+            background-color: #d9534f;
+            color: #fff;
+        }
+
+        .info-message {
+            background-color: #5bc0de;
+            color: #fff;
+        }
+
+        #map-container {
+            flex: 2;
+            padding: 20px;
+            border-radius: 50px;
+            overflow: auto;
+            background-color: #e6e6e6;
+            height: 100%; /* Set a height for the map container */
+        }
+
+        #map {
+            height: 100%; /* Make the map fill its container */
+        }
+    </style>
+</head>
+
+<style>
+    /* Add this style to create space between warning messages */
+    .message.warning-message + .message.warning-message {
+        margin-top: 10px; /* Adjust the margin as needed */
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Realtime Location Tracker</h1>
+    </header>
+    <div id="container">
+        <div id="left-container">
+            <h2>Warning Messages</h2>
+            <div id="message-container"></div>
+        </div>
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <!-- Mapbox JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+
+    <!-- External script -->
+    <script src="script.js"></script>
+    <!-- External script -->
+    <script src="Mscript.js"></script>
+    
+    
+</body>
+</html>
